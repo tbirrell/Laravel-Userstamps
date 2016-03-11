@@ -2,8 +2,6 @@
 
 namespace Wildside\Userstamps\Listeners;
 
-use Illuminate\Auth\Guard;
-
 class Creating {
 
     /**
