@@ -24,13 +24,8 @@ trait Userstamps {
         static::creating('Wildside\Userstamps\Listeners\Creating@handle');
         static::updating('Wildside\Userstamps\Listeners\Updating@handle');
 
-        if( method_exists(get_called_class(), 'deleting') )
-        {
+        if (in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(get_called_class()))) {
             static::deleting('Wildside\Userstamps\Listeners\Deleting@handle');
-        }
-
-        if( method_exists(get_called_class(), 'restoring') )
-        {
             static::restoring('Wildside\Userstamps\Listeners\Restoring@handle');
         }
     }
