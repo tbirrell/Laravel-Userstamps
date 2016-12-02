@@ -29,4 +29,38 @@ trait Userstamps {
             static::restoring('Wildside\Userstamps\Listeners\Restoring@handle');
         }
     }
+
+    /**
+     * Get the user that created the model.
+     */
+    public function creator()
+    {
+        return $this -> belongsTo($this -> getUserClass(), 'created_by');
+    }
+
+    /**
+     * Get the user that edited the model.
+     */
+    public function editor()
+    {
+        return $this -> belongsTo($this -> getUserClass(), 'updated_by');
+    }
+
+    /**
+     * Get the user that deleted the model.
+     */
+    public function destroyer()
+    {
+        return $this -> belongsTo($this -> getUserClass(), 'deleted_by');
+    }
+
+    /**
+     * Get the class being used to provide a User.
+     *
+     * @return string
+     */
+    protected function getUserClass()
+    {
+        return auth() -> guard() -> getProvider() -> getModel();
+    }
 }
