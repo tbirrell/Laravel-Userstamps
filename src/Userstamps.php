@@ -24,10 +24,26 @@ trait Userstamps {
         static::creating('Wildside\Userstamps\Listeners\Creating@handle');
         static::updating('Wildside\Userstamps\Listeners\Updating@handle');
 
-        if (in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(get_called_class()))) {
+        if (static::usingSoftDeletes()) {
             static::deleting('Wildside\Userstamps\Listeners\Deleting@handle');
             static::restoring('Wildside\Userstamps\Listeners\Restoring@handle');
         }
+    }
+
+    /**
+     * Has the model loaded the SoftDeletes trait.
+     *
+     * @return bool
+     */
+    public static function usingSoftDeletes()
+    {
+        static $usingSoftDeletes;
+
+        if (is_null($usingSoftDeletes)) {
+            return $usingSoftDeletes = in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(get_called_class()));
+        }
+
+        return $usingSoftDeletes;
     }
 
     /**
