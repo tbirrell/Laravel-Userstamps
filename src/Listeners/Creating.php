@@ -13,5 +13,6 @@ class Creating {
     public function handle($model)
     {
         $model -> created_by = auth() -> id();
+        $model -> updated_by = auth() -> id();
     }
 }
