@@ -33,7 +33,7 @@ class Example extends Model {
 }
 ```
 
-The following methods become available on your models to help retrieve the users creating, updating and deleting.
+The following methods become available on your models to help retrieve the users creating, updating and deleting (if using SoftDeletes).
 
 ```php
 $model -> creator; // the user who created the model
