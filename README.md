@@ -32,3 +32,11 @@ class Example extends Model {
     use Userstamps;
 }
 ```
+
+The following methods become available on your models to help retrieve the users creating, updating and deleting.
+
+```php
+$model -> creator; // the user who created the model
+$model -> editor; // the user who last updated the model
+$model -> destroyer; // the user who deleted the model
+```
