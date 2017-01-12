@@ -12,6 +12,10 @@ class Deleting {
      */
     public function handle($model)
     {
+        if (! $model -> isUserstamping()) {
+            return;
+        }
+
         $model -> deleted_by = auth() -> id();
 
         $model -> flushEventListeners();

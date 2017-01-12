@@ -5,6 +5,13 @@ namespace Wildside\Userstamps;
 trait Userstamps {
 
     /**
+     * Whether we're currently maintaing userstamps.
+     *
+     * @param bool
+     */
+    protected $userstamping = true;
+
+    /**
      * Boot the userstamps trait for a model.
      *
      * @return void
@@ -68,6 +75,36 @@ trait Userstamps {
     public function destroyer()
     {
         return $this -> belongsTo($this -> getUserClass(), 'deleted_by');
+    }
+
+    /**
+     * Check if we're maintaing Userstamps on the model.
+     *
+     * @return bool
+     */
+    public function isUserstamping()
+    {
+        return $this -> userstamping;
+    }
+
+    /**
+     * Stop maintaining Userstamps on the model.
+     *
+     * @return void
+     */
+    public function stopUserstamping()
+    {
+        $this -> userstamping = false;
+    }
+
+    /**
+     * Start maintaining Userstamps on the model.
+     *
+     * @return void
+     */
+    public function startUserstamping()
+    {
+        $this -> userstamping = true;
     }
 
     /**

@@ -12,6 +12,10 @@ class Updating {
      */
     public function handle($model)
     {
+        if (! $model -> isUserstamping()) {
+            return;
+        }
+
         $model -> updated_by = auth() -> id();
     }
 }

@@ -12,6 +12,10 @@ class Restoring {
      */
     public function handle($model)
     {
+        if (! $model -> isUserstamping()) {
+            return;
+        }
+
         $model -> deleted_by = null;
     }
 }
