@@ -40,3 +40,5 @@ $model -> creator; // the user who created the model
 $model -> editor; // the user who last updated the model
 $model -> destroyer; // the user who deleted the model
 ```
+
+If you want to manually set the `created_by` or `updated_by` properties on your model you can stop Userstamps being automatically maintained using the `stopUserstamping` method.
