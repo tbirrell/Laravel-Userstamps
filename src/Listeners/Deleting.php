@@ -17,8 +17,6 @@ class Deleting {
         }
 
         $model -> deleted_by = auth() -> id();
-
-        $model -> flushEventListeners();
         $model -> save();
     }
 }
