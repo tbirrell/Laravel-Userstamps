@@ -16,7 +16,10 @@ class Deleting {
             return;
         }
 
-        $model -> deleted_by = auth() -> id();
+        if (is_null($model -> deleted_by)) {
+            $model -> deleted_by = auth() -> id();
+        }
+
         $model -> save();
     }
 }
