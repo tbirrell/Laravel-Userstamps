@@ -16,6 +16,6 @@ class Updating {
             return;
         }
 
-        $model -> updated_by = auth() -> id();
+        $model -> {$model -> getUpdatedByColumn()} = auth() -> id();
     }
 }

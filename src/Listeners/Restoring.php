@@ -16,6 +16,6 @@ class Restoring {
             return;
         }
 
-        $model -> deleted_by = null;
+        $model -> {$model -> getDeletedByColumn()} = null;
     }
 }

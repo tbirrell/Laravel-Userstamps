@@ -16,8 +16,8 @@ class Deleting {
             return;
         }
 
-        if (is_null($model -> deleted_by)) {
-            $model -> deleted_by = auth() -> id();
+        if (is_null($model -> {$model -> getDeletedByColumn()})) {
+            $model -> {$model -> getDeletedByColumn()} = auth() -> id();
         }
 
         $model -> save();

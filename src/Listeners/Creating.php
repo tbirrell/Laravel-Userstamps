@@ -16,12 +16,12 @@ class Creating {
             return;
         }
 
-        if (is_null($model -> created_by)) {
-            $model -> created_by = auth() -> id();
+        if (is_null($model -> {$model -> getCreatedByColumn()})) {
+            $model -> {$model -> getCreatedByColumn()} = auth() -> id();
         }
 
-        if (is_null($model -> updated_by)) {
-            $model -> updated_by = auth() -> id();
+        if (is_null($model -> {$model -> getUpdatedByColumn()})) {
+            $model -> {$model -> getUpdatedByColumn()} = auth() -> id();
         }
     }
 }
