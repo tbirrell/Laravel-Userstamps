@@ -45,6 +45,6 @@ If you want to manually set the `created_by` or `updated_by` properties on your 
 
 If you want to define the `created_by`, `updated_by`, or `deleted_by` column names, add the following class constants to your model(s).
 ```php
-const CREATED_BY = '';
-const UPDATED_BY = '';
-const DELETED_BY = '';
+const CREATED_BY = 'created_by';
+const UPDATED_BY = 'updated_by';
+const DELETED_BY = 'deleted_by';
