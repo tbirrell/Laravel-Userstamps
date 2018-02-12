@@ -20,7 +20,7 @@ class Creating {
             $model -> {$model -> getCreatedByColumn()} = auth() -> id();
         }
 
-        if (is_null($model -> {$model -> getUpdatedByColumn()})) {
+        if (is_null($model -> {$model -> getUpdatedByColumn()}) && ! is_null($model -> getUpdatedByColumn())) {
             $model -> {$model -> getUpdatedByColumn()} = auth() -> id();
         }
     }
