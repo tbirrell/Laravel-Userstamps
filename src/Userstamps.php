@@ -157,6 +157,34 @@ trait Userstamps {
     }
 
     /**
+     * Stop maintaining Timestamps on the model and update Userstamps if we are syncronizing.
+     *
+     * @return void
+     */
+    public function stopTimestamping()
+    {
+        $this -> timestamps = false;
+
+        if ($this -> syncUserWithTime) {
+            $this -> userstamping = false;
+        }
+    }
+
+    /**
+     * Start maintaining Timestamps on the model and update Userstamps if we are syncronizing.
+     *
+     * @return void
+     */
+    public function startTimestamping()
+    {
+        $this -> timestamps = true;
+
+        if ($this -> syncUserWithTime) {
+            $this -> userstamping = true;
+        }
+    }
+
+    /**
      * Get the class being used to provide a User.
      *
      * @return string
