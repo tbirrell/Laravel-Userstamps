@@ -58,3 +58,8 @@ If you want to define the `created_by`, `updated_by`, or `deleted_by` column nam
 const CREATED_BY = 'created_by';
 const UPDATED_BY = 'updated_by';
 const DELETED_BY = 'deleted_by';
+```
+
+## License
+
+This open-source software is licensed under the [MIT license](https://opensource.org/licenses/MIT).
