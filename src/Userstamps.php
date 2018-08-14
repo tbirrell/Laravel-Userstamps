@@ -65,7 +65,7 @@ trait Userstamps {
      */
     public function creator()
     {
-        return $this -> belongsTo($this -> getUserClass(), 'created_by');
+        return $this -> belongsTo($this -> getUserClass(), $this -> getCreatedByColumn());
     }
 
     /**
@@ -73,7 +73,7 @@ trait Userstamps {
      */
     public function editor()
     {
-        return $this -> belongsTo($this -> getUserClass(), 'updated_by');
+        return $this -> belongsTo($this -> getUserClass(), $this -> getUpdatedByColumn());
     }
 
     /**
@@ -81,7 +81,7 @@ trait Userstamps {
      */
     public function destroyer()
     {
-        return $this -> belongsTo($this -> getUserClass(), 'deleted_by');
+        return $this -> belongsTo($this -> getUserClass(), $this -> getDeletedByColumn());
     }
 
     /**
