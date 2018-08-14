@@ -33,11 +33,11 @@ class UserstampServiceProvider extends ServiceProvider
             for ($id = 0; $id < count($this->columns); $id++) {
                 switch ($this->columns[$id]->name) {
                     case 'created_at':
-                        array_splice($this->columns, $id+1, 0, []);
+                        array_splice($this->columns, $id+1, 0, '');
                         $this->columns[$id+1] = new Fluent(['name' => 'created_by'] + $parameters);
                         break;
                     case 'updated_at':
-                        array_splice($this->columns, $id+1, 0, []);
+                        array_splice($this->columns, $id+1, 0, '');
                         $this->columns[$id+1] = new Fluent(['name' => 'updated_by'] + $parameters);
                         break;
                 }
